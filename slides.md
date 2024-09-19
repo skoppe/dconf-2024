@@ -58,23 +58,23 @@ This makes it a lot more easy to reason about already complex code.
 
 #### Improvements
 
-- memory usage
 - fewer external dependencies
+- improved memory usage
 - does less work
 - streams => sequences (ongoing rewrite to address shortcomings)
 <br/>
 <br/>
-#### New features
+#### Experimental features
 
-- support for IO (iouring only atm)
+- support for IO (iouring only at the moment)
 - support for Fibers
 
 <!--
 
-- We improved memory usage by either removing them or putting them on the stack
-- Removed some dependencies. Walter asked me to get this into Phobos, and I expected it to be easy... It isn't. I was depending on several dub libraries, which had to be tackled first
-- so I removed them, made things simpler, less moving parts, and performance improvements
-- reworked the streams into sequences, mostly to solve things around backpressue and to allow streams of streams etc.
+- I had to remove external dependencies and that prompted me to reconsider some core aspects
+- However, those extra constraints lead to fewer memory allocations by either removing them or being able to move them to the stack
+- made things simpler, less moving parts, and resulted performance improvements
+- there were issues around the streams concept, mostly around backpressure. The new sequences doesn't have this issue.
 
 After having completed key parts of the foundation, I moved on to io and fibers.
 
@@ -95,9 +95,7 @@ After having completed key parts of the foundation, I moved on to io and fibers.
 
 Besides that it is safe, performant and composable, we have also seen that it integrates well.
 
-So if you have some existing async code, it is very amenable to wrap that.
-
-I believe that it because Senders/Receivers captures the essence of an asynchronous computation very well.
+So if you have some existing async code, we have always found it to be able to wrap that. I think that is because the Senders/Receivers model captures the essence of an asynchronous computation very well.
 
 But...
 
