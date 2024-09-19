@@ -71,7 +71,9 @@ This makes it a lot more easy to reason about already complex code.
 
 <!--
 
-- I had to remove external dependencies and that prompted me to reconsider some core aspects
+One of the goals I have is to clean up the library in preparation for consideration into Phobos.
+
+- I had to remove external dependencies and that prompted me to reconsider some core aspects and that turned out to be rather tricky
 - However, those extra constraints lead to fewer memory allocations by either removing them or being able to move them to the stack
 - made things simpler, less moving parts, and resulted performance improvements
 - there were issues around the streams concept, mostly around backpressure. The new sequences doesn't have this issue.
@@ -95,7 +97,7 @@ After having completed key parts of the foundation, I moved on to io and fibers.
 
 Besides that it is safe, performant and composable, we have also seen that it integrates well.
 
-So if you have some existing async code, we have always found it to be able to wrap that. I think that is because the Senders/Receivers model captures the essence of an asynchronous computation very well.
+So if you have some existing async code, we have always found it to be able to wrap and integrate with that. I think that is because the Senders/Receivers model captures the essence of an asynchronous computation very well.
 
 But...
 
