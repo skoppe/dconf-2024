@@ -16,7 +16,7 @@ jobs:
       - name: Install and Build 
         run: |
           npm ci
-          npm run build -- --base /dconf-2022/
+          npm run build -- --base /dconf-2024/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
